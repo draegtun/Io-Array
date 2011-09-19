@@ -2,7 +2,6 @@ Range
 
 Array := List clone do (
     
-    # if a List then return a list
     at := method (n,
         if (n type == "List",
             return n map (i, self super(at(i))),
