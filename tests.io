@@ -16,6 +16,7 @@ ArrayTest := UnitTest clone do (
         assertEquals( array[baz], "two" )
         assertEquals( array[baz + 1], "three" )
         assertEquals( array[baz + 1, 0], list("three", "zero") )
+        assertEquals( array[list(baz)], list("two") )
     )
     
     testList := method (
@@ -29,6 +30,7 @@ ArrayTest := UnitTest clone do (
         assertEquals( array[ 1 to(3) ], list("one", "two", "three") )
         assertEquals( array[ 1 to(3), 0, 3 to(4), list(0,2) ], 
             list("one", "two", "three", "zero", "three", "four", "zero", "two") )
+        assertEquals( array[ 1 to(1) ], list("one") )   # Range index always returns a list()
     )
     
     testClone := method (
@@ -39,6 +41,13 @@ ArrayTest := UnitTest clone do (
         
         # and finally lets check original array has mutated!
         assertEquals( array, list("zero", "one", "two", "three", "four") )
+    )
+
+    testMinus := method (
+        assertEquals( array[-1],    "four"  )
+        assertEquals( array at(-2), "three" )
+        assertEquals( array[-1, 0, -2, 4], list("four", "zero", "three", "four") )
+        # assertEquals( array[list(-1, -2)], list("four", "three") ) - list() doesn't do minus indexes!
     )
     
     //tearDown := method ()

@@ -5,10 +5,11 @@ Array := List clone do (
     
     at := method (n,
         if (n type == "Range", n = n asList)
-        if (n type == "List",
-            return n map (i, self super(at(i))),
-            return self super(at(n))
+        if (n type == "List", return n map (i, self super(at(i))))
+        if (n type == "Number") then (
+            if (n < 0, n = n + self size)
         )
+        return self super(at(n))
     )
     
     squareBrackets := method (
