@@ -1,0 +1,11 @@
+Revision history for Io-Arry
+
+0.00	Mon January 17, 2011
+	* First start tinkering with idea of squareBrackets Array in Io
+	  - Build.PL now has repo meta tag
+
+
+0.01	Mon September 16, 2011
+	* Packaged it for putting on Github
+	  - added tests
+      - Changes & todo files
