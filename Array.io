@@ -1,6 +1,7 @@
 Range
 
 Array := List clone do (
+    version := "0.01"
     
     at := method (n,
         if (n type == "Range", n = n asList)
