@@ -1,7 +1,3 @@
-* array[-1] (for last element)
-
 * extra convenience methods. for eg.   array each (n, writeln(n))
-
-* lvalue setters.  for eg.   array[1] = 2
 
 * Multi-dimensional arrays!   array[1][2]

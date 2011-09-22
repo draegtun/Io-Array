@@ -8,3 +8,18 @@ Revision history for Io-Array
 	* Packaged up for putting on Github
 	  - added tests
       - Changes & todo files
+
+
+0.02
+    * Going thru todo list
+      - minus indexes, for eg. array[-1] to get last element
+      - Element setter via put().  For eg. 
+            
+            array[2] put("Hello")
+            
+        NB. lvalue setters.  for eg. array[1] = 2 werent possible
+            because of Operator Table parsing (assignment)
+
+        Thought....    how about syntax:      array[2]{"Hello"}    (Where {} used for setting?)    
+                       or perhaps AST magic:  array[2] "hello"
+

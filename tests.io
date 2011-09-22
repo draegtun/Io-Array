@@ -49,6 +49,20 @@ ArrayTest := UnitTest clone do (
         assertEquals( array[-1, 0, -2, 4], list("four", "zero", "three", "four") )
         # assertEquals( array[list(-1, -2)], list("four", "three") ) - list() doesn't do minus indexes!
     )
+
+    testAssignValues := method (
+        newArray := Array with("a", "b", "c", "d")
+        #newArray[2] updateSlot("C")
+        newArray[2] put("C")
+        assertEquals( newArray[2], "C" )
+        newArray[0] put("A")
+        assertEquals( newArray, list("A", "b", "C", "d") )
+    )
+    
+    testPlaysWell := method (
+        newArray := Array with(0, 1, 2, 3, 4, 5)
+        assertEquals( newArray[2] + 2, newArray[4] )
+    )
     
     //tearDown := method ()
 )
