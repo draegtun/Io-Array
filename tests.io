@@ -55,13 +55,19 @@ ArrayTest := UnitTest clone do (
         #newArray[2] updateSlot("C")
         newArray[2] put("C")
         assertEquals( newArray[2], "C" )
-        newArray[0] put("A")
+        newArray[0] << "A"
         assertEquals( newArray, list("A", "b", "C", "d") )
     )
     
     testPlaysWell := method (
         newArray := Array with(0, 1, 2, 3, 4, 5)
-        assertEquals( newArray[2] + 2, newArray[4] )
+        assertEquals( newArray[2] + 2, newArray[5] - newArray[1] )
+    )
+    
+    testAppend := method (
+        newArray := Array with("pre", "middle")
+        newArray << "post"
+        assertEquals( newArray, list("pre", "middle", "post") )
     )
     
     //tearDown := method ()

@@ -23,3 +23,14 @@ Revision history for Io-Array
         Thought....    how about syntax:      array[2]{"Hello"}    (Where {} used for setting?)    
                        or perhaps AST magic:  array[2] "hello"
 
+        In the end I added the extra syntax to put()....
+
+            array[2] << "Hello"
+
+        With that in mind its provides a nice congitive syntax for appending....
+
+      - Append to array shortcut using  <<  (shift bits operator overloaded)
+
+            array << "Barry"       is         array append("Barry")
+
+            
