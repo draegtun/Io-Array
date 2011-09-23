@@ -64,7 +64,7 @@ ArrayTest := UnitTest clone do (
         assertEquals( newArray[2] + 2, newArray[5] - newArray[1] )
 
         greeting := Array with("Hi", "there", "Barry")
-        #assertEquals( greeting[0] .. " " .. greeting[2], "Hi Barry" )
+        assertEquals( greeting[0] .. " " .. greeting[2], "Hi Barry" )
         
     )
     

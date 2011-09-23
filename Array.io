@@ -1,18 +1,7 @@
 Range
 
-ArrayElement := Object clone do (
-
-    # amend element
-    put := method (n,
-        selfArray atPut( elementPosition, n )
-        self
-    )
-
-    << := method (n, put(n))  # shortcut
-)
-
 Array := List clone do (
-    version := "0.02"
+    version := "0.03"
 
     # index method
     at := method (n,
@@ -22,12 +11,20 @@ Array := List clone do (
             if (n < 0, n = n + self size)
         )
 
-        # element (Number object) is cloned with ArrayElement has parent proto
+        # element (Number, Sequence, ? but not a list) is cloned with ArrayElement has parent proto
         s := self
         element := self super(at(n)) clone
-        element prependProto( ArrayElement )
         element setSlot( "elementPosition", n )
         element setSlot( "selfArray", s )
+        element do (
+            # add setter method to object
+            put := method (n,
+                selfArray atPut( elementPosition, n )
+                self
+            )
+
+            << := method (n, put(n))  # shortcut 
+        )
         return element
     )
 
