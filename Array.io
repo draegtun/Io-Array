@@ -1,6 +1,6 @@
 Range
 
-ArrayElement := Number clone do (
+ArrayElement := Object clone do (
 
     # amend element
     put := method (n,
